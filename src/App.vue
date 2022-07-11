@@ -13,7 +13,7 @@
                 <div>
                     <i class="wasCheck bi bi-check-circle-fill d-none" v-on:click="unCheck(index)"></i>
                     <i class="notCheck bi bi-check-circle" v-on:click="check(index)"></i>
-                    <span>{{ countTsk.text }}</span>
+                    <span :class="tasks.wasChecked ? 'checkedContentList' : ''">{{ countTsk.text }}</span>
                 </div>
                 <i class="delete bi bi-x-lg" v-on:click="delTask(index)"></i>
             </div>
