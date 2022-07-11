@@ -11,9 +11,9 @@
         <section id="list" class="myList mb-2">
             <div class="myListContent mb-1" v-for="(countTsk, index) in tasks">
                 <div>
-                    <i class="wasCheck bi bi-check-circle-fill"></i>
-                    <i class="notCheck bi bi-check-circle"></i>
-                    {{ countTsk }}
+                    <i class="wasCheck bi bi-check-circle-fill d-none" v-on:click="unCheck(index)"></i>
+                    <i class="notCheck bi bi-check-circle" v-on:click="check(index)"></i>
+                    <span>{{ countTsk.text }}</span>
                 </div>
                 <i class="delete bi bi-x-lg" v-on:click="delTask(index)"></i>
             </div>
@@ -29,17 +29,26 @@
 export default {
     name: 'App',
     data() {
-        if(!localStorage.dataList) localStorage.dataList = ''
+        if (!localStorage.dataList) localStorage.dataList = ''
         return {
-            tasks: localStorage.dataList != '' ? localStorage.dataList.split(',') : [],
-            taskText: ''
+            tasks: localStorage.dataList != '' ? JSON.parse(localStorage.dataList) : [],
+            taskText: '',
+            wasCheck: false,
         }
     },
     methods: {
+        initialize(pos){
+            console.log(pos)
+            //this.tasks[pos].wasChecked = true ? document.querySelectorAll('#list .myListContent span')[pos].setAttribute('class', 'checkedContentList') : ''
+        },
         addTask() {
             if (this.taskText.trim() === '') return
-            this.tasks.push(this.taskText)
+            this.tasks.push({
+               text: this.taskText.trim(),
+               wasChecked: this.wasCheck
+            })
             this.taskText = ''
+            this.wasCheck = false,
             document.getElementById('TaskInput').value = ''
         },
         delTask(pos) {
@@ -53,7 +62,22 @@ export default {
         },
         saveList() {
             alert('dados salvos!')
-            localStorage.dataList = this.tasks
+            this.tasks
+            localStorage.dataList = JSON.stringify(this.tasks)
+        },
+        unCheck(pos) {
+            document.querySelectorAll('#list .myListContent span')[pos].removeAttribute('class')
+            document.querySelectorAll('.myListContent .notCheck')[pos].setAttribute('class', 'notCheck bi bi-check-circle')
+            document.querySelectorAll('.myListContent .wasCheck')[pos].setAttribute('class', 'wasCheck bi bi-check-circle-fill d-none')
+            this.tasks[pos].wasChecked = false
+            localStorage.dataList = JSON.stringify(this.tasks)
+        },
+        check(pos) {
+            document.querySelectorAll('.myListContent .wasCheck')[pos].setAttribute('class', 'wasCheck bi bi-check-circle-fill')
+            document.querySelectorAll('.myListContent .notCheck')[pos].setAttribute('class', 'notCheck bi bi-check-circle d-none')
+            document.querySelectorAll('#list .myListContent span')[pos].setAttribute('class', 'checkedContentList')
+            this.tasks[pos].wasChecked = true
+            localStorage.dataList = JSON.stringify(this.tasks)
         }
     },
 }

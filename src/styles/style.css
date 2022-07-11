@@ -118,13 +118,14 @@ button:active {
     color: white;
 }
 
+.checkedContentList {
+    color: gray !important;
+    text-decoration: line-through;
+}
+
 .myListContent div i {
     cursor: pointer;
     color: rgb(49, 138, 142);
-}
-
-i.wasCheck {
-    display: none;
 }
 
 .myListContent .delete {
