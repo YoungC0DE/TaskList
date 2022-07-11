@@ -1,0 +1,461 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-transition: all .5s 0s ease-in-out;
+    -moz-transition: all .5s 0s ease-in-out;
+    -o-transition: all .5s 0s ease-in-out;
+    transition: all .5s 0s ease-in-out;
+}
+
+input:focus,
+button:focus,
+button:hover,
+button:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.inputArea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container h1 {
+    font-family: 'Rubik Moonrocks', cursive;
+    color: white;
+}
+
+.container input {
+    width: 25vw;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #c2c4ff21;
+}
+.container input:active{
+    background-color: white;
+}
+
+.inputArea,
+.myList {
+    width: 35vw;
+    border: 1px solid #cbc;
+    padding: 15px 5px;
+    border-radius: 4px;
+    background-color: #00000085;
+}
+
+.inputArea i {
+    border: 1px solid rgb(18, 180, 132) !important;
+    color: rgb(19, 159, 117);
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.inputArea i:hover {
+    background-color: rgb(18, 180, 132);
+    color: white;
+    border-color: transparent !important;
+}
+
+.myList::-webkit-scrollbar {
+    width: 5px;
+}
+
+.myList::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.myList::-webkit-scrollbar-thumb {
+    background-color: #446e79;
+    border-radius: 4px;
+    border: 0px none #ffffff;
+}
+
+.myList {
+    padding: 10px;
+    height: 50vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #446e79 #ffffff;
+}
+
+.myList .myListContent {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 18pt;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    border: 1px outset #ced4da;
+    border-radius: 8px;
+    background-color: #cccffe21;
+    color: white;
+}
+
+.myListContent div i {
+    cursor: pointer;
+    color: rgb(49, 138, 142);
+}
+
+i.wasCheck {
+    display: none;
+}
+
+.myListContent .delete {
+    cursor: pointer;
+    color: red;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.myListContent .delete:hover {
+    color: white;
+    background-color: rgb(236, 114, 114);
+}
+
+.actions {
+    width: 35vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.actions button {
+    -webkit-transition: all .5s 0s ease-in-out;
+    -moz-transition: all .5s 0s ease-in-out;
+    -o-transition: all .5s 0s ease-in-out;
+    transition: all .5s 0s ease-in-out;
+}
+
+.actions #discart {
+    border: 1px solid rgb(114, 114, 114) !important;
+    color: rgb(114, 114, 114);
+}
+
+.actions #save {
+    border: 1px solid rgb(37, 137, 219) !important;
+    color: rgb(37, 137, 219);
+}
+
+.actions #discart:hover {
+    background-color: rgb(114, 114, 114);
+    border-color: transparent !important;
+    color: white;
+}
+
+.actions #save:hover {
+    background-color: rgb(37, 137, 219);
+    border-color: transparent !important;
+    color: white;
+}
+
+/*============BACKGROUND ANIMATED ============*/
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #161a27;
+    overflow: hidden;
+    z-index: -1;
+}
+.background li {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #131723;
+    color: transparent;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 16s ease-in forwards infinite;
+}
+.background li:nth-child(0) {
+    animation-delay: 0s;
+    left: 66vw;
+    top: 57vh;
+}
+
+.background li:nth-child(1) {
+    animation-delay: 2s;
+    left: 59vw;
+    top: 80vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(2) {
+    animation-delay: 4s;
+    left: 49vw;
+    top: 13vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(3) {
+    animation-delay: 6s;
+    left: 57vw;
+    top: 50vh;
+}
+
+.background li:nth-child(4) {
+    animation-delay: 8s;
+    left: 8vw;
+    top: 95vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(5) {
+    animation-delay: 10s;
+    left: 43vw;
+    top: 83vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(6) {
+    animation-delay: 12s;
+    left: 67vw;
+    top: 61vh;
+}
+
+.background li:nth-child(7) {
+    animation-delay: 14s;
+    left: 83vw;
+    top: 53vh;
+}
+
+.background li:nth-child(8) {
+    animation-delay: 16s;
+    left: 87vw;
+    top: 68vh;
+}
+
+.background li:nth-child(9) {
+    animation-delay: 18s;
+    left: 6vw;
+    top: 32vh;
+}
+
+.background li:nth-child(10) {
+    animation-delay: 20s;
+    left: 22vw;
+    top: 39vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(11) {
+    animation-delay: 22s;
+    left: 69vw;
+    top: 70vh;
+}
+
+.background li:nth-child(12) {
+    animation-delay: 24s;
+    left: 11vw;
+    top: 47vh;
+}
+
+.background li:nth-child(13) {
+    animation-delay: 26s;
+    left: 24vw;
+    top: 18vh;
+}
+
+.background li:nth-child(14) {
+    animation-delay: 28s;
+    left: 27vw;
+    top: 90vh;
+}
+
+.background li:nth-child(15) {
+    animation-delay: 30s;
+    left: 36vw;
+    top: 77vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(16) {
+    animation-delay: 32s;
+    left: 99vw;
+    top: 8vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(17) {
+    animation-delay: 34s;
+    left: 1vw;
+    top: 36vh;
+}
+
+.background li:nth-child(18) {
+    animation-delay: 36s;
+    left: 35vw;
+    top: 20vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(19) {
+    animation-delay: 38s;
+    left: 79vw;
+    top: 43vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(20) {
+    animation-delay: 40s;
+    left: 16vw;
+    top: 1vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(21) {
+    animation-delay: 42s;
+    left: 91vw;
+    top: 97vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(22) {
+    animation-delay: 44s;
+    left: 33vw;
+    top: 45vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(23) {
+    animation-delay: 46s;
+    left: 94vw;
+    top: 23vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(24) {
+    animation-delay: 48s;
+    left: 4vw;
+    top: 5vh;
+}
+
+.background li:nth-child(25) {
+    animation-delay: 50s;
+    left: 47vw;
+    top: 3vh;
+}
+
+.background li:nth-child(26) {
+    animation-delay: 52s;
+    left: 53vw;
+    top: 34vh;
+}
+
+.background li:nth-child(27) {
+    animation-delay: 54s;
+    left: 86vw;
+    top: 86vh;
+}
+
+.background li:nth-child(28) {
+    animation-delay: 56s;
+    left: 73vw;
+    top: 17vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(29) {
+    animation-delay: 58s;
+    left: 14vw;
+    top: 26vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(30) {
+    animation-delay: 60s;
+    left: 30vw;
+    top: 11vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(31) {
+    animation-delay: 62s;
+    left: 76vw;
+    top: 94vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(32) {
+    animation-delay: 64s;
+    left: 62vw;
+    top: 65vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(33) {
+    animation-delay: 66s;
+    left: 96vw;
+    top: 29vh;
+    border-color: #181c2a;
+}
+
+.background li:nth-child(34) {
+    animation-delay: 68s;
+    left: 77vw;
+    top: 87vh;
+}
+
+.background li:nth-child(35) {
+    animation-delay: 70s;
+    left: 54vw;
+    top: 74vh;
+}
+
+.background li:nth-child(36) {
+    animation-delay: 72s;
+    left: 19vw;
+    top: 55vh;
+}
+
+.background li:nth-child(37) {
+    animation-delay: 74s;
+    left: 43vw;
+    top: 60vh;
+}
+
+.background li:nth-child(38) {
+    animation-delay: 76s;
+    left: 39vw;
+    top: 74vh;
+    border-color: #181c2a;
+}
+
+/* reference https://wweb.dev/resources/animated-css-background-generator/ */
