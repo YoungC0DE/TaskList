@@ -118,6 +118,10 @@ button:active {
     color: white;
 }
 
+.myList .myListContent span {
+    padding-left: 5px;
+}
+
 .checkedContentList {
     color: gray !important;
     text-decoration: line-through;
